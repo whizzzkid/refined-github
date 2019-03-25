@@ -93,6 +93,7 @@ import './features/fit-textareas';
 import './features/collapsible-content-button';
 import './features/hide-watch-and-fork-count';
 import './features/follow-file-renames';
+import './features/resolve-conflict';
 
 // Add global for easier debugging
 (window as any).select = select;
