@@ -7,7 +7,7 @@ import {getUsername, getCleanPathname, getRepoPath, getOwnerAndRepo} from './uti
 
 export const is404 = (): boolean => document.title === 'Page not found · GitHub';
 
-export const is500 = (): boolean => document.title === 'Server Error · GitHub';
+export const is500 = (): boolean => document.title === 'Server Error · GitHub' || document.title === 'Unicorn! · GitHub';
 
 export const isBlame = (): boolean => /^blame\//.test(getRepoPath());
 
@@ -18,9 +18,6 @@ export const isCommitList = (): boolean => /^commits\//.test(getRepoPath());
 export const isCompare = (): boolean => /^compare/.test(getRepoPath());
 
 export const isDashboard = (): boolean => !isGist() && /^$|^(orgs[/][^/]+[/])?dashboard([/]|$)/.test(getCleanPathname());
-
-// TODO: change name to clarify what discussion this is
-export const isDiscussion = (): boolean => /^orgs\/[^/]+\/teams\/[^/]+($|\/discussions)/.test(getCleanPathname());
 
 export const isEnterprise = (): boolean => location.hostname !== 'github.com' && location.hostname !== 'gist.github.com';
 
@@ -49,6 +46,8 @@ export const isNewIssue = (): boolean => /^issues\/new/.test(getRepoPath());
 export const isNotifications = (): boolean => /^([^/]+[/][^/]+\/)?notifications/.test(getCleanPathname());
 
 export const isOrganizationProfile = (): boolean => select.exists('.orghead');
+
+export const isOrganizationDiscussion = (): boolean => /^orgs\/[^/]+\/teams\/[^/]+($|\/discussions)/.test(getCleanPathname());
 
 export const isOwnUserProfile = (): boolean => getCleanPathname() === getUsername();
 
@@ -93,3 +92,14 @@ export const isSingleFile = (): boolean => /^blob\//.test(getRepoPath());
 export const isTrending = (): boolean => location.pathname === '/trending' || location.pathname.startsWith('/trending/');
 
 export const isUserProfile = (): boolean => select.exists('.user-profile-nav');
+
+export const hasComments = (): boolean =>
+	isPR() ||
+	isIssue() ||
+	isCommit() ||
+	isOrganizationDiscussion();
+
+export const hasRichTextEditor = (): boolean =>
+	hasComments() ||
+	isNewIssue() ||
+	isCompare();
