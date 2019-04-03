@@ -1,7 +1,9 @@
 import React from 'dom-chef';
 import select from 'select-dom';
+import searchQuery from 'search-string';
 import features from '../libs/features';
 import {getUsername} from '../libs/utils';
+console.log(searchQuery)
 
 function init() {
 	const defaultQuery = 'is:open archived:false ';
