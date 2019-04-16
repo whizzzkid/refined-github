@@ -45,8 +45,8 @@ import './features/sort-milestones-by-closest-due-date';
 import './features/star-repo-hotkey';
 import './features/toggle-files-button';
 import './features/scroll-to-top-on-collapse';
-import './features/fix-squash-and-merge-title';
-import './features/fix-squash-and-merge-message';
+import './features/pr-merge-info-enhancements';
+console.log(22222222222222)
 import './features/open-ci-details-in-new-tab';
 import './features/wait-for-build';
 import './features/hide-inactive-deployments';
