@@ -63,7 +63,7 @@
 		"ts-node": "^8.0.3",
 		"typescript": "^3.3.3333",
 		"utc-version": "^1.1.0",
-		"web-ext-submit": "^3.0.0",
+		"web-ext-submit": "^7.5.0",
 		"webpack": "^4.29.6",
 		"webpack-cli": "^3.3.0",
 		"xo": "^0.24.0"
